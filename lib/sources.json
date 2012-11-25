@@ -1,0 +1,27 @@
+{
+   "haveeru": {
+      "url": "http://www.haveeru.com.mv/dhivehi/news/:id",
+      "retry_threshold": 2,
+      "lastfetch": 130038
+   },
+   "sun": {
+      "url": "http://sun.mv/:id",
+      "retry_threshold": 2,
+      "lastfetch": 24400
+   },
+   "dhitv": {
+      "url": "http://dhitv.com.mv/:id",
+      "retry_threshold": 2,
+      "lastfetch": 5500
+   },
+   "vmedia": {
+      "url": "http://vmedia.mv/news/view/id/:id",
+      "retry_threshold": 2,
+      "lastfetch": 1400
+   },
+   "mvyouth": {
+      "url": "http://mvyouth.info/live/:id/",
+      "retry_threshold": 2,
+      "lastfetch": 29250
+   }
+}
