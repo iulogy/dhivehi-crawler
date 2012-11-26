@@ -2,17 +2,20 @@
    "haveeru": {
       "url": "http://www.haveeru.com.mv/dhivehi/news/:id",
       "retry_threshold": 2,
-      "lastfetch": 130038
+      "lastfetch": 130074,
+      "not_found": []
    },
    "sun": {
       "url": "http://sun.mv/:id",
       "retry_threshold": 2,
-      "lastfetch": 24400
+      "lastfetch": 24431,
+      "not_found": []
    },
    "dhitv": {
       "url": "http://dhitv.com.mv/:id",
       "retry_threshold": 2,
-      "lastfetch": 5500
+      "lastfetch": 5531,
+      "not_found": []
    },
    "vmedia": {
       "url": "http://vmedia.mv/news/view/id/:id",
