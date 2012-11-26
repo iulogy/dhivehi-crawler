@@ -2,18 +2,13 @@
 //process.stdout.write ('\u001B[2J\u001B[0;0f')
 
 var util = require('util');
+var arg = require('optimist');
 
 var sites = require('./lib');
 
 var site = new sites.site();
 
-site.sources = [];
-site.sources.push('sun');
-site.sources.push('haveeru');
-site.sources.push('dhitv');
-site.sources.push('mvyouth');
-site.sources.push('vmedia');
-
+site.requestLimit = arg.limit +1 || 6
 site.on('error', function(err){
 	console.log(err);
 })
