@@ -2,29 +2,155 @@
    "haveeru": {
       "url": "http://www.haveeru.com.mv/dhivehi/news/:id",
       "retry_threshold": 2,
-      "lastfetch": 130074,
-      "not_found": []
+      "lastfetch": 131661,
+      "not_found": [
+         {
+            "url": "http://www.haveeru.com.mv/dhivehi/news/131659",
+            "num": 131659,
+            "tries": 1
+         },
+         {
+            "url": "http://www.haveeru.com.mv/dhivehi/news/131660",
+            "num": 131660,
+            "tries": 1
+         },
+         {
+            "url": "http://www.haveeru.com.mv/dhivehi/news/131661",
+            "num": 131661,
+            "tries": 1
+         },
+         {
+            "url": "http://www.haveeru.com.mv/dhivehi/news/131656",
+            "num": 131656,
+            "tries": 2
+         },
+         {
+            "url": "http://www.haveeru.com.mv/dhivehi/news/131657",
+            "num": 131657,
+            "tries": 2
+         },
+         {
+            "url": "http://www.haveeru.com.mv/dhivehi/news/131658",
+            "num": 131658,
+            "tries": 2
+         }
+      ]
    },
    "sun": {
       "url": "http://sun.mv/:id",
-      "retry_threshold": 2,
-      "lastfetch": 24431,
+      "retry_threshold": 5,
+      "lastfetch": 9,
       "not_found": []
    },
    "dhitv": {
       "url": "http://dhitv.com.mv/:id",
       "retry_threshold": 2,
-      "lastfetch": 5531,
-      "not_found": []
+      "lastfetch": 7031,
+      "not_found": [
+         {
+            "url": "http://dhitv.com.mv/7029",
+            "num": 7029,
+            "tries": 1
+         },
+         {
+            "url": "http://dhitv.com.mv/7030",
+            "num": 7030,
+            "tries": 1
+         },
+         {
+            "url": "http://dhitv.com.mv/7031",
+            "num": 7031,
+            "tries": 1
+         },
+         {
+            "url": "http://dhitv.com.mv/7026",
+            "num": 7026,
+            "tries": 2
+         },
+         {
+            "url": "http://dhitv.com.mv/7027",
+            "num": 7027,
+            "tries": 2
+         },
+         {
+            "url": "http://dhitv.com.mv/7028",
+            "num": 7028,
+            "tries": 2
+         }
+      ]
    },
    "vmedia": {
       "url": "http://vmedia.mv/news/view/id/:id",
       "retry_threshold": 2,
-      "lastfetch": 1400
+      "lastfetch": 2894,
+      "not_found": [
+         {
+            "url": "http://vmedia.mv/news/view/id/2892",
+            "num": 2892,
+            "tries": 1
+         },
+         {
+            "url": "http://vmedia.mv/news/view/id/2893",
+            "num": 2893,
+            "tries": 1
+         },
+         {
+            "url": "http://vmedia.mv/news/view/id/2894",
+            "num": 2894,
+            "tries": 1
+         },
+         {
+            "url": "http://vmedia.mv/news/view/id/2889",
+            "num": 2889,
+            "tries": 2
+         },
+         {
+            "url": "http://vmedia.mv/news/view/id/2890",
+            "num": 2890,
+            "tries": 2
+         },
+         {
+            "url": "http://vmedia.mv/news/view/id/2891",
+            "num": 2891,
+            "tries": 2
+         }
+      ]
    },
    "mvyouth": {
       "url": "http://mvyouth.info/live/:id/",
       "retry_threshold": 2,
-      "lastfetch": 29250
+      "lastfetch": 30747,
+      "not_found": [
+         {
+            "url": "http://mvyouth.info/live/30745/",
+            "num": 30745,
+            "tries": 1
+         },
+         {
+            "url": "http://mvyouth.info/live/30746/",
+            "num": 30746,
+            "tries": 1
+         },
+         {
+            "url": "http://mvyouth.info/live/30747/",
+            "num": 30747,
+            "tries": 1
+         },
+         {
+            "url": "http://mvyouth.info/live/30742/",
+            "num": 30742,
+            "tries": 2
+         },
+         {
+            "url": "http://mvyouth.info/live/30743/",
+            "num": 30743,
+            "tries": 2
+         },
+         {
+            "url": "http://mvyouth.info/live/30744/",
+            "num": 30744,
+            "tries": 2
+         }
+      ]
    }
 }

@@ -9,7 +9,7 @@ var site = new sites.site();
 if(arg.sites){
 	site.sources = typeof arg.sites == 'object' ? arg.sites : new Array(arg.sites);
 }
-site.requestLimit = arg.limit +1 || 6;
+site.requestLimit = arg.limit +1 || 4;
 site.on('error', function(err){
 	console.log(err);
 })
