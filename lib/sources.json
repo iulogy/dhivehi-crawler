@@ -1,32 +1,32 @@
 {
    "haveeru": {
       "url": "http://www.haveeru.com.mv/dhivehi/news/:id",
-      "retry_threshold": 2,
+      "retry_threshold": 2000,
       "lastfetch": 130561
    },
    "sun": {
       "url": "http://sun.mv/:id",
-      "retry_threshold": 5,
+      "retry_threshold": 2000,
       "lastfetch": 24548
    },
    "dhitv": {
       "url": "http://dhitv.com.mv/:id",
-      "retry_threshold": 2,
+      "retry_threshold": 2000,
       "lastfetch": 5534
    },
    "vmedia": {
       "url": "http://vmedia.mv/news/view/id/:id",
-      "retry_threshold": 2,
+      "retry_threshold": 2000,
       "lastfetch": 1476
    },
    "mvyouth": {
       "url": "http://mvyouth.info/live/:id/",
-      "retry_threshold": 2,
+      "retry_threshold": 2000,
       "lastfetch": 29642
    },
    "mvexposed": {
       "url": "www.mvexposed.com/dv/posts/khabaru/:id",
-      "retry_threshold": 2,
+      "retry_threshold": 2000,
       "lastfetch": 1212
    }
 }
