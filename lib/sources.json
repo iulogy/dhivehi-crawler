@@ -2,154 +2,80 @@
    "haveeru": {
       "url": "http://www.haveeru.com.mv/dhivehi/news/:id",
       "retry_threshold": 2,
-      "lastfetch": 131661,
+      "lastfetch": 130567,
       "not_found": [
          {
-            "url": "http://www.haveeru.com.mv/dhivehi/news/131659",
-            "num": 131659,
+            "url": "http://www.haveeru.com.mv/dhivehi/news/130567",
+            "num": 130567,
             "tries": 1
-         },
-         {
-            "url": "http://www.haveeru.com.mv/dhivehi/news/131660",
-            "num": 131660,
-            "tries": 1
-         },
-         {
-            "url": "http://www.haveeru.com.mv/dhivehi/news/131661",
-            "num": 131661,
-            "tries": 1
-         },
-         {
-            "url": "http://www.haveeru.com.mv/dhivehi/news/131656",
-            "num": 131656,
-            "tries": 2
-         },
-         {
-            "url": "http://www.haveeru.com.mv/dhivehi/news/131657",
-            "num": 131657,
-            "tries": 2
-         },
-         {
-            "url": "http://www.haveeru.com.mv/dhivehi/news/131658",
-            "num": 131658,
-            "tries": 2
          }
       ]
    },
    "sun": {
       "url": "http://sun.mv/:id",
       "retry_threshold": 5,
-      "lastfetch": 9,
+      "lastfetch": 24554,
       "not_found": []
    },
    "dhitv": {
       "url": "http://dhitv.com.mv/:id",
       "retry_threshold": 2,
-      "lastfetch": 7031,
-      "not_found": [
-         {
-            "url": "http://dhitv.com.mv/7029",
-            "num": 7029,
-            "tries": 1
-         },
-         {
-            "url": "http://dhitv.com.mv/7030",
-            "num": 7030,
-            "tries": 1
-         },
-         {
-            "url": "http://dhitv.com.mv/7031",
-            "num": 7031,
-            "tries": 1
-         },
-         {
-            "url": "http://dhitv.com.mv/7026",
-            "num": 7026,
-            "tries": 2
-         },
-         {
-            "url": "http://dhitv.com.mv/7027",
-            "num": 7027,
-            "tries": 2
-         },
-         {
-            "url": "http://dhitv.com.mv/7028",
-            "num": 7028,
-            "tries": 2
-         }
-      ]
+      "lastfetch": 5540,
+      "not_found": []
    },
    "vmedia": {
       "url": "http://vmedia.mv/news/view/id/:id",
       "retry_threshold": 2,
-      "lastfetch": 2894,
+      "lastfetch": 1482,
       "not_found": [
          {
-            "url": "http://vmedia.mv/news/view/id/2892",
-            "num": 2892,
+            "url": "http://vmedia.mv/news/view/id/1481",
+            "num": 1481,
             "tries": 1
-         },
-         {
-            "url": "http://vmedia.mv/news/view/id/2893",
-            "num": 2893,
-            "tries": 1
-         },
-         {
-            "url": "http://vmedia.mv/news/view/id/2894",
-            "num": 2894,
-            "tries": 1
-         },
-         {
-            "url": "http://vmedia.mv/news/view/id/2889",
-            "num": 2889,
-            "tries": 2
-         },
-         {
-            "url": "http://vmedia.mv/news/view/id/2890",
-            "num": 2890,
-            "tries": 2
-         },
-         {
-            "url": "http://vmedia.mv/news/view/id/2891",
-            "num": 2891,
-            "tries": 2
          }
       ]
    },
    "mvyouth": {
       "url": "http://mvyouth.info/live/:id/",
       "retry_threshold": 2,
-      "lastfetch": 30747,
+      "lastfetch": 29648,
       "not_found": [
          {
-            "url": "http://mvyouth.info/live/30745/",
-            "num": 30745,
+            "url": "http://mvyouth.info/live/29646/",
+            "num": 29646,
             "tries": 1
          },
          {
-            "url": "http://mvyouth.info/live/30746/",
-            "num": 30746,
+            "url": "http://mvyouth.info/live/29647/",
+            "num": 29647,
             "tries": 1
          },
          {
-            "url": "http://mvyouth.info/live/30747/",
-            "num": 30747,
+            "url": "http://mvyouth.info/live/29648/",
+            "num": 29648,
+            "tries": 1
+         }
+      ]
+   },
+   "mvexposed": {
+      "url": "www.mvexposed.com/dv/posts/khabaru/:id",
+      "retry_threshold": 2,
+      "lastfetch": 1218,
+      "not_found": [
+         {
+            "url": "www.mvexposed.com/dv/posts/khabaru/1216",
+            "num": 1216,
             "tries": 1
          },
          {
-            "url": "http://mvyouth.info/live/30742/",
-            "num": 30742,
-            "tries": 2
+            "url": "www.mvexposed.com/dv/posts/khabaru/1217",
+            "num": 1217,
+            "tries": 1
          },
          {
-            "url": "http://mvyouth.info/live/30743/",
-            "num": 30743,
-            "tries": 2
-         },
-         {
-            "url": "http://mvyouth.info/live/30744/",
-            "num": 30744,
-            "tries": 2
+            "url": "www.mvexposed.com/dv/posts/khabaru/1218",
+            "num": 1218,
+            "tries": 1
          }
       ]
    }
