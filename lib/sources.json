@@ -2,35 +2,97 @@
    "haveeru": {
       "url": "http://www.haveeru.com.mv/dhivehi/news/:id",
       "retry_threshold": 2,
-      "lastfetch": 130567,
+      "lastfetch": 130680,
       "not_found": [
          {
-            "url": "http://www.haveeru.com.mv/dhivehi/news/130567",
-            "num": 130567,
+            "url": "http://www.haveeru.com.mv/dhivehi/news/130681",
+            "num": 130681,
             "tries": 1
+         },
+         {
+            "url": "http://www.haveeru.com.mv/dhivehi/news/130682",
+            "num": 130682,
+            "tries": 1
+         },
+         {
+            "url": "http://www.haveeru.com.mv/dhivehi/news/130678",
+            "num": 130678,
+            "tries": 2
+         },
+         {
+            "url": "http://www.haveeru.com.mv/dhivehi/news/130679",
+            "num": 130679,
+            "tries": 2
+         },
+         {
+            "url": "http://www.haveeru.com.mv/dhivehi/news/130680",
+            "num": 130680,
+            "tries": 2
          }
       ]
    },
    "sun": {
       "url": "http://sun.mv/:id",
       "retry_threshold": 5,
-      "lastfetch": 24554,
-      "not_found": []
+      "lastfetch": 25493,
+      "not_found": [
+         {
+            "url": "http://sun.mv/25491",
+            "num": 25491,
+            "tries": 1
+         },
+         {
+            "url": "http://sun.mv/25492",
+            "num": 25492,
+            "tries": 1
+         },
+         {
+            "url": "http://sun.mv/25493",
+            "num": 25493,
+            "tries": 1
+         }
+      ]
    },
    "dhitv": {
       "url": "http://dhitv.com.mv/:id",
       "retry_threshold": 2,
-      "lastfetch": 5540,
-      "not_found": []
+      "lastfetch": 6452,
+      "not_found": [
+         {
+            "url": "http://dhitv.com.mv/6450",
+            "num": 6450,
+            "tries": 1
+         },
+         {
+            "url": "http://dhitv.com.mv/6451",
+            "num": 6451,
+            "tries": 1
+         },
+         {
+            "url": "http://dhitv.com.mv/6452",
+            "num": 6452,
+            "tries": 1
+         }
+      ]
    },
    "vmedia": {
       "url": "http://vmedia.mv/news/view/id/:id",
       "retry_threshold": 2,
-      "lastfetch": 1482,
+      "lastfetch": 2391,
       "not_found": [
          {
-            "url": "http://vmedia.mv/news/view/id/1481",
-            "num": 1481,
+            "url": "http://vmedia.mv/news/view/id/2389",
+            "num": 2389,
+            "tries": 1
+         },
+         {
+            "url": "http://vmedia.mv/news/view/id/2390",
+            "num": 2390,
+            "tries": 1
+         },
+         {
+            "url": "http://vmedia.mv/news/view/id/2391",
+            "num": 2391,
             "tries": 1
          }
       ]
@@ -38,21 +100,21 @@
    "mvyouth": {
       "url": "http://mvyouth.info/live/:id/",
       "retry_threshold": 2,
-      "lastfetch": 29648,
+      "lastfetch": 30557,
       "not_found": [
          {
-            "url": "http://mvyouth.info/live/29646/",
-            "num": 29646,
+            "url": "http://mvyouth.info/live/30555/",
+            "num": 30555,
             "tries": 1
          },
          {
-            "url": "http://mvyouth.info/live/29647/",
-            "num": 29647,
+            "url": "http://mvyouth.info/live/30556/",
+            "num": 30556,
             "tries": 1
          },
          {
-            "url": "http://mvyouth.info/live/29648/",
-            "num": 29648,
+            "url": "http://mvyouth.info/live/30557/",
+            "num": 30557,
             "tries": 1
          }
       ]
@@ -60,21 +122,21 @@
    "mvexposed": {
       "url": "www.mvexposed.com/dv/posts/khabaru/:id",
       "retry_threshold": 2,
-      "lastfetch": 1218,
+      "lastfetch": 2127,
       "not_found": [
          {
-            "url": "www.mvexposed.com/dv/posts/khabaru/1216",
-            "num": 1216,
+            "url": "www.mvexposed.com/dv/posts/khabaru/2125",
+            "num": 2125,
             "tries": 1
          },
          {
-            "url": "www.mvexposed.com/dv/posts/khabaru/1217",
-            "num": 1217,
+            "url": "www.mvexposed.com/dv/posts/khabaru/2126",
+            "num": 2126,
             "tries": 1
          },
          {
-            "url": "www.mvexposed.com/dv/posts/khabaru/1218",
-            "num": 1218,
+            "url": "www.mvexposed.com/dv/posts/khabaru/2127",
+            "num": 2127,
             "tries": 1
          }
       ]
