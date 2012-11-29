@@ -1,144 +1,123 @@
 {
-   "haveeru": {
-      "url": "http://www.haveeru.com.mv/dhivehi/news/:id",
-      "retry_threshold": 2,
-      "lastfetch": 130680,
-      "not_found": [
-         {
-            "url": "http://www.haveeru.com.mv/dhivehi/news/130681",
-            "num": 130681,
-            "tries": 1
-         },
-         {
-            "url": "http://www.haveeru.com.mv/dhivehi/news/130682",
-            "num": 130682,
-            "tries": 1
-         },
-         {
-            "url": "http://www.haveeru.com.mv/dhivehi/news/130678",
-            "num": 130678,
-            "tries": 2
-         },
-         {
-            "url": "http://www.haveeru.com.mv/dhivehi/news/130679",
-            "num": 130679,
-            "tries": 2
-         },
-         {
-            "url": "http://www.haveeru.com.mv/dhivehi/news/130680",
-            "num": 130680,
-            "tries": 2
-         }
-      ]
-   },
    "sun": {
-      "url": "http://sun.mv/:id",
-      "retry_threshold": 5,
-      "lastfetch": 25493,
-      "not_found": [
-         {
-            "url": "http://sun.mv/25491",
-            "num": 25491,
-            "tries": 1
-         },
-         {
-            "url": "http://sun.mv/25492",
-            "num": 25492,
-            "tries": 1
-         },
-         {
-            "url": "http://sun.mv/25493",
-            "num": 25493,
-            "tries": 1
-         }
+      "listing": "http://www.sun.mv/search/",
+      "enumerate_dom": ".news_listing_title.boldtext a",
+      "attribute": "href",
+      "lastfetch": [
+         "http://www.sun.mv/24664",
+         "http://www.sun.mv/24665",
+         "http://www.sun.mv/24666",
+         "http://www.sun.mv/24667",
+         "http://www.sun.mv/24668",
+         "http://www.sun.mv/24669",
+         "http://www.sun.mv/24670",
+         "http://www.sun.mv/24671",
+         "http://www.sun.mv/24672",
+         "http://www.sun.mv/24673",
+         "http://www.sun.mv/24674",
+         "http://www.sun.mv/24675",
+         "http://www.sun.mv/24676",
+         "http://www.sun.mv/24677",
+         "http://www.sun.mv/24678"
       ]
    },
-   "dhitv": {
-      "url": "http://dhitv.com.mv/:id",
-      "retry_threshold": 2,
-      "lastfetch": 6452,
-      "not_found": [
-         {
-            "url": "http://dhitv.com.mv/6450",
-            "num": 6450,
-            "tries": 1
-         },
-         {
-            "url": "http://dhitv.com.mv/6451",
-            "num": 6451,
-            "tries": 1
-         },
-         {
-            "url": "http://dhitv.com.mv/6452",
-            "num": 6452,
-            "tries": 1
-         }
-      ]
-   },
-   "vmedia": {
-      "url": "http://vmedia.mv/news/view/id/:id",
-      "retry_threshold": 2,
-      "lastfetch": 2391,
-      "not_found": [
-         {
-            "url": "http://vmedia.mv/news/view/id/2389",
-            "num": 2389,
-            "tries": 1
-         },
-         {
-            "url": "http://vmedia.mv/news/view/id/2390",
-            "num": 2390,
-            "tries": 1
-         },
-         {
-            "url": "http://vmedia.mv/news/view/id/2391",
-            "num": 2391,
-            "tries": 1
-         }
-      ]
+   "haveeru": {
+      "listing": "http://haveeru.com.mv/rss/dhivehi",
+      "enumerate_dom": "item lin"
    },
    "mvyouth": {
-      "url": "http://mvyouth.info/live/:id/",
-      "retry_threshold": 2,
-      "lastfetch": 30557,
-      "not_found": [
-         {
-            "url": "http://mvyouth.info/live/30555/",
-            "num": 30555,
-            "tries": 1
-         },
-         {
-            "url": "http://mvyouth.info/live/30556/",
-            "num": 30556,
-            "tries": 1
-         },
-         {
-            "url": "http://mvyouth.info/live/30557/",
-            "num": 30557,
-            "tries": 1
-         }
+      "listing": "http://www.mvyouth.info/live/feed/",
+      "enumerate_dom": "item lin",
+      "lastfetch": [
+         "http://www.mvyouth.info/live/29795/",
+         "http://www.mvyouth.info/live/29797/",
+         "http://www.mvyouth.info/live/29803/",
+         "http://www.mvyouth.info/live/29805/",
+         "http://www.mvyouth.info/live/29808/",
+         "http://www.mvyouth.info/live/29814/",
+         "http://www.mvyouth.info/live/29821/",
+         "http://www.mvyouth.info/live/29823/",
+         "http://www.mvyouth.info/live/29834/",
+         "http://www.mvyouth.info/live/29839/"
       ]
    },
    "mvexposed": {
-      "url": "www.mvexposed.com/dv/posts/khabaru/:id",
-      "retry_threshold": 2,
-      "lastfetch": 2127,
-      "not_found": [
-         {
-            "url": "www.mvexposed.com/dv/posts/khabaru/2125",
-            "num": 2125,
-            "tries": 1
-         },
-         {
-            "url": "www.mvexposed.com/dv/posts/khabaru/2126",
-            "num": 2126,
-            "tries": 1
-         },
-         {
-            "url": "www.mvexposed.com/dv/posts/khabaru/2127",
-            "num": 2127,
-            "tries": 1
-         }
+      "listing": "http://www.mvexposed.com/dv/",
+      "enumerate_dom": ".panel_item.medium .panel_header a",
+      "attribute": "href"
+   },
+   "vmedia": {
+      "listing": "http://www.vmedia.mv/",
+      "enumerate_dom": ".latest_news a",
+      "attribute": "href",
+      "url_prepend": "http://vmedia.mv/"
+   },
+   "raajje": {
+      "listing": "http://raajje.mv/dv/page/khabaru/",
+      "enumerate_dom": ".widget_items a",
+      "attribute": "href",
+      "url_prepend": "http://raajje.mv",
+      "lastfetch": [
+         "http://raajje.mv/dv/page/khabaru/military-verikameacgai-onnaany-alhuvethikurun-jaabiru",
+         "http://raajje.mv/dv/page/khabaru/massthuwaa-thakethyge-ithuru-netvokeac-athulaiganefi",
+         "http://raajje.mv/dv/page/khabaru/jiemaar-maacsalaigai-majilyhah-imraan-inzwrudyfi",
+         "http://raajje.mv/dv/page/khabaru/emdipyge-fonkolthasc-misarukaarun-aduahaa-maacsala-majilyhah-huswhalhaifi",
+         "http://raajje.mv/dv/page/khabaru/2013-wana-aharuge-dhawlathuge-bajet-jihaadhu-huswhalhaifi",
+         "http://raajje.mv/dv/page/khabaru/massthuwaa-thakethyge-ithuru-netvokeac-athulaiganefi",
+         "http://raajje.mv/dv/page/khabaru/jiemaar-maacsalaigai-majilyhah-imraan-inzwrudyfi",
+         "http://raajje.mv/dv/page/khabaru/emdipyge-fonkolthasc-misarukaarun-aduahaa-maacsala-majilyhah-huswhalhaifi",
+         "http://raajje.mv/dv/page/khabaru/2013-wana-aharuge-dhawlathuge-bajet-jihaadhu-huswhalhaifi",
+         "http://raajje.mv/dv/page/khabaru/jiemaarge-ehbassvun-baathilkoscfi"
+      ]
+   },
+   "dhitv": {
+      "listing": "http://dhitv.com.mv/search/month/:date",
+      "enumerate_dom": ".mon a",
+      "attribute": "href",
+      "evaluate": {
+         "date": "(new Date().getUTCMonth() + 1) + \"-\" + (new Date().getFullYear())"
+      },
+      "lastfetch": [
+         "http://dhitv.com.mv/5627",
+         "http://dhitv.com.mv/5628",
+         "http://dhitv.com.mv/5629",
+         "http://dhitv.com.mv/5630",
+         "http://dhitv.com.mv/5631",
+         "http://dhitv.com.mv/5632",
+         "http://dhitv.com.mv/5633",
+         "http://dhitv.com.mv/5634",
+         "http://dhitv.com.mv/5635",
+         "http://dhitv.com.mv/5636",
+         "http://dhitv.com.mv/5637",
+         "http://dhitv.com.mv/5638",
+         "http://dhitv.com.mv/5639",
+         "http://dhitv.com.mv/5640",
+         "http://dhitv.com.mv/5641",
+         "http://dhitv.com.mv/5642",
+         "http://dhitv.com.mv/5643",
+         "http://dhitv.com.mv/5644",
+         "http://dhitv.com.mv/5645",
+         "http://dhitv.com.mv/5646"
+      ]
+   },
+   "adduonline": {
+      "listing": "http://www.adduonline.com.mv/feed",
+      "enumerate_dom": "item lin"
+   },
+   "newdhivehiobserver": {
+      "listing": "http://www.newdhivehiobserver.com/feed",
+      "enumerate_dom": "item lin",
+      "lastfetch": [
+         "http://www.newdhivehiobserver.com/people/5076",
+         "http://www.newdhivehiobserver.com/politics/5078",
+         "http://www.newdhivehiobserver.com/news/5079",
+         "http://www.newdhivehiobserver.com/politics/5086",
+         "http://www.newdhivehiobserver.com/politics/5096",
+         "http://www.newdhivehiobserver.com/news/5100",
+         "http://www.newdhivehiobserver.com/news/5104",
+         "http://www.newdhivehiobserver.com/news/5111",
+         "http://www.newdhivehiobserver.com/news/5119",
+         "http://www.newdhivehiobserver.com/news/5133"
       ]
    }
 }
