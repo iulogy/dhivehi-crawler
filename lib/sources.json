@@ -44,4 +44,5 @@
    "newdhivehiobserver": {
       "listing": "http://www.newdhivehiobserver.com/feed",
       "enumerate_dom": "item lin"
+    }
 }
