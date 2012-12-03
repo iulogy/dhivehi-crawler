@@ -1,7 +1,6 @@
 var spawn = require('child_process').spawn;
 var arg = require('optimist').argv;
 
-setInterval(x, 1000 * 60 * (arg.interval || 2));
 
 function x (){
 	app = spawn('node', ['app.js', '--limit', arg.limit || 3]);
@@ -10,7 +9,7 @@ function x (){
 		console.log(data);
 	})
 	app.on('exit', function(){
-		console.log("***********\nDONE\n***********")
+		setTimeout(x, 20000);
 	});
 }
 x();

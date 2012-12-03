@@ -21,6 +21,7 @@
     "colors": "~0.6.0-1",
     "underscore": "~1.4.2",
     "hiredis": "~0.1.14",
-    "optimist": "~0.3.5"
+    "optimist": "~0.3.5",
+    "fb": "0.0.9"
   }
 }
