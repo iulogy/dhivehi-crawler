@@ -3,9 +3,17 @@
 
 var util = require('util');
 var arg = require('optimist').argv;
-var sites = require('./lib');
+var Sites = require('./lib');
 
-var site = new sites.site();
+
+var site = new Sites.site();
+
+//process commands, sync commands, exit on complete
+if(arg.reset){
+	Sites.reset();
+	process.exit();
+}
+
 if(arg.sites){
 	site.sources = typeof arg.sites == 'object' ? arg.sites : new Array(arg.sites);
 }
