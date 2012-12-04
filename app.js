@@ -14,6 +14,7 @@ if(arg.reset){
 	process.exit();
 }
 
+
 if(arg.sites){
 	site.sources = typeof arg.sites == 'object' ? arg.sites : new Array(arg.sites);
 }
