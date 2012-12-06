@@ -9,7 +9,7 @@ function x (){
 		console.log(data);
 	})
 	app.on('exit', function(){
-		setTimeout(x, 20000);
+		setTimeout(x, 1000 * 60 * 5);
 	});
 }
 x();
