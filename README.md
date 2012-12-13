@@ -3,6 +3,5 @@
 coming soon!!
 
 TODO:
-retry 20 times
-if an article doesnt show in feed then remove it
-otherwise keep it so it wont be fetch again
+images which are fetch after retries are kept in article object in redis, use this image as front picture.
+
