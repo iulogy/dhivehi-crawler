@@ -42,21 +42,14 @@
    },
    "newdhivehiobserver": {
       "listing": "http://www.newdhivehiobserver.com/feed",
-      "enumerate_dom": "item lin",
-      "lastfetch": [
-         "http://www.newdhivehiobserver.com/news/5156",
-         "http://www.newdhivehiobserver.com/news/5165",
-         "http://www.newdhivehiobserver.com/politics/5169",
-         "http://www.newdhivehiobserver.com/politics/5172",
-         "http://www.newdhivehiobserver.com/news/5180",
-         "http://www.newdhivehiobserver.com/politics/5181",
-         "http://www.newdhivehiobserver.com/news/5193",
-         "http://www.newdhivehiobserver.com/news/5227",
-         "http://www.newdhivehiobserver.com/people/5211"
-      ]
+      "enumerate_dom": "item lin"
    },
    "police": {
       "listing": "http://police.gov.mv/feed/?cat=4",
+      "enumerate_dom": "item lin"
+   },
+   "fanvai": {
+      "listing": "http://fanvai.info/index.php?format=feed&amp;type=atom",
       "enumerate_dom": "item lin"
    }
 }
