@@ -51,5 +51,13 @@
    "fanvai": {
       "listing": "http://fanvai.info/index.php?format=feed&amp;type=atom",
       "enumerate_dom": "item lin"
+   },
+   "dhiislam": {
+      "listing": "http://dhiislam.com/feed",
+      "enumerate_dom": "item comments"
+   },
+   "minivannews": {
+      "listing": "http://minivannews.com/dhivehi/?feed=rss2",
+      "enumerate_dom": "item lin"
    }
 }
