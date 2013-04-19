@@ -7,10 +7,6 @@
       "listing": "http://haveeru.com.mv/rss/dhivehi",
       "enumerate_dom": "item lin"
    },
-   "mvyouth": {
-      "listing": "http://www.mvyouth.info/live/feed/",
-      "enumerate_dom": "item lin"
-   },
    "mvexposed": {
       "listing": "http://www.mvexposed.com/dv/",
       "enumerate_dom": ".panel_item.medium .panel_header a",
