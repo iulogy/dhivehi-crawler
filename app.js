@@ -34,7 +34,3 @@ site.on('fetch', function(data){
 })
 
 site.fetch();
-
-var heapdump = require('heapdump');
-
-setTimeout(function(){heapdump.writeSnapshot();}, 1000 * 60 * 5);
