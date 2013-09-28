@@ -1,59 +1,13 @@
 {
-   "sun": {
-      "listing": "http://sun.mv/feed/",
-      "enumerate_dom": "item lin"
-   },
-   "haveeru": {
-      "listing": "http://haveeru.com.mv/rss/dhivehi",
-      "enumerate_dom": "item lin"
-   },
-   "mvexposed": {
-      "listing": "http://www.mvexposed.com/dv/",
-      "enumerate_dom": ".panel_item.medium .panel_header a",
-      "attribute": "href"
-   },
    "vmedia": {
+	  "label":"vmedia",
       "listing": "http://www.vmedia.mv/",
-      "enumerate_dom": ".latest_news a",
+      "enumerate_dom": ".timeline-items li a",
       "attribute": "href",
-      "url_prepend": "http://vmedia.mv/"
-   },
-   "raajje": {
-      "listing": "http://raajje.mv/dv/page/khabaru/",
-      "enumerate_dom": ".widget_items a",
-      "attribute": "href",
-      "url_prepend": "http://raajje.mv"
-   },
-   "dhitv": {
-      "listing": "http://dhitv.com.mv/search/month/:date",
-      "enumerate_dom": ".mon a",
-      "attribute": "href",
-      "evaluate": {
-         "date": "(new Date().getUTCMonth() + 1) + \"-\" + (new Date().getFullYear())"
+      "scrape":{
+      	"title":"title",
+      	"date":".article-meta ol:last",
+      	"article":".art-para"
       }
-   },
-   "adduonline": {
-      "listing": "http://www.adduonline.com.mv/feed",
-      "enumerate_dom": "item lin"
-   },
-   "newdhivehiobserver": {
-      "listing": "http://www.newdhivehiobserver.com/feed",
-      "enumerate_dom": "item lin"
-   },
-   "police": {
-      "listing": "http://police.gov.mv/feed/?cat=4",
-      "enumerate_dom": "item lin"
-   },
-   "fanvai": {
-      "listing": "http://fanvai.info/index.php?format=feed&amp;type=atom",
-      "enumerate_dom": "item lin"
-   },
-   "dhiislam": {
-      "listing": "http://dhiislam.com/feed",
-      "enumerate_dom": "item comments"
-   },
-   "minivannews": {
-      "listing": "http://minivannews.com/dhivehi/?feed=rss2",
-      "enumerate_dom": "item lin"
    }
 }
