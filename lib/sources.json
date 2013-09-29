@@ -1,13 +1,114 @@
 {
-   "vmedia": {
+	"vmedia": {
 	  "label":"vmedia",
-      "listing": "http://www.vmedia.mv/",
-      "enumerate_dom": ".timeline-items li a",
-      "attribute": "href",
-      "scrape":{
-      	"title":"title",
-      	"date":".article-meta ol:last",
-      	"article":".art-para"
-      }
-   }
+	  "listing": "http://www.vmedia.mv/",
+	  "enumerate_dom": ".timeline-items li a",
+	  "attribute": "href",
+	  "scrape":{
+	  	"title":"title",
+	  	"date":".article-meta ol:last",
+	  	"article":".art-para",
+	  	"images":{
+	  		"selector":[".bb-bookblock img,.art-image img"],
+	  		"attribute":"src"
+	  	},
+	  	"videos":{
+	  		"selector":[".embed-contnet"],
+	  		"attribute":"data-url"
+	  	},
+	  	"author":".authortitle a"
+	  }
+	},
+	"sun": {
+		"label":"sun",
+		"listing": "http://sun.mv/feed/",
+		"enumerate_dom": "item lin",
+		"scrape":{
+			"title":".mainheadline",
+			"date":".article_attributes ol",
+			"article":".article_body",
+			"images":{
+				"selector":["#gallery_slide img"],
+				"attribute":"src"
+			},
+			"videos":{
+				"selector":["object"],
+				"attribute":"data"
+			},
+			"author":".authorinformation font"
+		}
+	},
+	"sun_en": {
+		"label":"sun_en",
+		"listing": "http://www.sun.mv/english/category/news",
+		"enumerate_dom": ".news_listing_title a",
+		"remove":".home_main_news .block",
+		"attribute": "href",
+		"scrape":{
+			"title":".mainheadline",
+			"date":".article_attributes ol",
+			"article":".article_body",
+			"images":{
+				"selector":["#gallery_slide img"],
+				"attribute":"src"
+			},
+			"videos":{
+				"selector":["object"],
+				"attribute":"data"
+			},
+			"author":".authorinformation font"
+		}
+	},
+	"haveeru": {
+		"label":"haveeru",
+		"listing": "http://haveeru.com.mv/rss/dhivehi",
+		"enumerate_dom": "item lin",
+		"scrape":{
+			"title":".post h1:first",
+			"category":".text-theme a",
+			"date":".date.waheed",
+			"article":"#article,.post-frame",
+			"images":{
+				"selector":[".gallery li img"],
+				"attribute":"src"
+			},
+			"videos":{
+				"selector":["object"],
+				"attribute":"data"
+			},
+			"author":".authorinformation font"
+		}
+	},
+	"haveeru": {
+		"label":"haveeru_en",
+		"listing": "http://haveeru.com.mv/rss",
+		"enumerate_dom": "item lin",
+		"remove":".service-holder,#comments,.intro",
+		"scrape":{
+			"title":".post h1:first",
+			"category":".breadcrumbs li:last a",
+			"date":".date",
+			"article":".post-frame",
+			"images":{
+				"selector":[".gallery li img"],
+				"attribute":"src"
+			},
+			"videos":{
+				"selector":["object"],
+				"attribute":"data"
+			},
+			"author":".subttl"
+		}
+	},
+	"haveeru_images": {
+		"label":"haveeru_images",
+		"listing": "http://www.haveeru.com.mv/dhivehi/pictures/",
+		"enumerate_dom": "#gallerylist li a",
+		"scrape":{
+			"images":{
+				"selector":[".slides li img"],
+				"attribute":"rel"
+			}
+		}
+	}
 }
