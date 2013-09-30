@@ -100,10 +100,25 @@
 			"author":".subttl"
 		}
 	},
+	"sun_photos":{
+		"label":"sun_photos",
+		"listing": "http://www.sun.mv/pictures",
+		"enumerate_dom": ".mid_news_block .news_listing_title a",
+		"attribute":"href",
+		"scrape":{
+			"title":".image_caption",
+			"images":{
+				"selector":[".pictures img"],
+				"attribute":"src",
+				"replace":["t_", "l_"]
+			}
+		}
+	},
 	"haveeru_images": {
 		"label":"haveeru_images",
 		"listing": "http://www.haveeru.com.mv/dhivehi/pictures/",
 		"enumerate_dom": "#gallerylist li a",
+		"attribute":"href",		
 		"scrape":{
 			"images":{
 				"selector":[".slides li img"],
