@@ -128,5 +128,60 @@
 				"attribute":"rel"
 			}
 		}
+	},
+	"times": {
+		"label":"times",
+		"listing": "http://times.mv/news",
+		"enumerate_dom": ".catitem a",
+		"attribute":"href",		
+		"scrape":{
+			"title":"#single h1",
+			"category":".catname a",
+			"date":"#articleinfo p:last",
+			"article":"#article-text",
+			"images":{
+				"selector":["#media img"],
+				"attribute":"src"
+			},
+			"author":"#articleinfo p:first"
+		}
+	},
+	"mvyouth": {
+		"label":"mvyouth",
+		"listing": "http://www.mvyouth.mv/live/feed/",
+		"enumerate_dom": "item lin",
+		"remove":".block-social",
+		"scrape":{
+			"title":".page-title",
+			"date":".post_date",
+			"article":"article",
+			"images":{
+				"selector":[".post_thumb img"],
+				"attribute":"src"
+			},
+			"videos":{
+				"selector":[".post_content iframe"],
+				"attribute":"src"
+			}
+		}
+	},
+	"police": {
+		"label":"police",
+		"listing": "http://www.policelife.mv/feed/?cat=4",
+		"enumerate_dom": "item lin",
+		"scrape":{
+			"title":".title h2 a",
+			"date":".postmeta span",
+			"images":{
+				"selector":[".entry img"],
+				"attribute":"src",
+				"remove":"#myContent,.entry img:first"
+			},
+			"article":".entry",
+			"videos":{
+				"selector":[".post_content iframe"],
+				"attribute":"src"
+			}
+		}
 	}
 }
