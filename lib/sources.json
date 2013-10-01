@@ -118,8 +118,11 @@
 		"label":"haveeru_images",
 		"listing": "http://www.haveeru.com.mv/dhivehi/pictures/",
 		"enumerate_dom": "#gallerylist li a",
-		"attribute":"href",		
+		"attribute":"href",
+		"url_prepend":"http://www.haveeru.com.mv",
+		"remove":".gallery-holder2 h1 a",
 		"scrape":{
+			"title":".gallery-holder2 h1",
 			"images":{
 				"selector":[".slides li img"],
 				"attribute":"rel"
