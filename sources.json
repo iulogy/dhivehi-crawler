@@ -1,1 +1,215 @@
-{"haveeru":{"url":"http://www.haveeru.com.mv/dhivehi/news/:id","lastfetch":120005}}
+{
+	"vmedia": {
+	  "label":"vmedia",
+	  "listing": "http://www.vmedia.mv/",
+	  "enumerate_dom": ".timeline-items li a",
+	  "attribute": "href",
+	  "scrape":{
+	  	"title":"title",
+	  	"date":".article-meta ol:last",
+	  	"article":".art-para",
+	  	"images":{
+	  		"selector":[".bb-bookblock img,.art-image img"],
+	  		"attribute":"src"
+	  	},
+	  	"videos":{
+	  		"selector":[".embed-contnet"],
+	  		"attribute":"data-url"
+	  	},
+	  	"author":".authortitle a"
+	  }
+	},
+	"sun": {
+		"label":"sun",
+		"listing": "http://sun.mv/feed/",
+		"enumerate_dom": "item lin",
+		"scrape":{
+			"title":".mainheadline",
+			"date":".article_attributes ol",
+			"article":".article_body",
+			"images":{
+				"selector":["#gallery_slide img"],
+				"attribute":"src"
+			},
+			"videos":{
+				"selector":["object"],
+				"attribute":"data"
+			},
+			"author":".authorinformation font"
+		}
+	},
+	"sun_en": {
+		"label":"sun_en",
+		"listing": "http://www.sun.mv/english/category/news",
+		"enumerate_dom": ".news_listing_title a",
+		"remove":".home_main_news .block",
+		"attribute": "href",
+		"scrape":{
+			"title":".mainheadline",
+			"date":".article_attributes ol",
+			"article":".article_body",
+			"images":{
+				"selector":["#gallery_slide img"],
+				"attribute":"src"
+			},
+			"videos":{
+				"selector":["object"],
+				"attribute":"data"
+			},
+			"author":".authorinformation font"
+		}
+	},
+	"haveeru": {
+		"label":"haveeru",
+		"listing": "http://haveeru.com.mv/rss/dhivehi",
+		"enumerate_dom": "item lin",
+		"scrape":{
+			"title":".post h1:first",
+			"category":".text-theme a",
+			"date":".date.waheed",
+			"article":"#article,.post-frame",
+			"images":{
+				"selector":[".gallery li img"],
+				"attribute":"src"
+			},
+			"videos":{
+				"selector":["object"],
+				"attribute":"data"
+			},
+			"author":".authorinformation font"
+		}
+	},
+	"haveeru": {
+		"label":"haveeru_en",
+		"listing": "http://haveeru.com.mv/rss",
+		"enumerate_dom": "item lin",
+		"remove":".service-holder,#comments,.intro",
+		"scrape":{
+			"title":".post h1:first",
+			"category":".breadcrumbs li:last a",
+			"date":".date",
+			"article":".post-frame",
+			"images":{
+				"selector":[".gallery li img"],
+				"attribute":"src"
+			},
+			"videos":{
+				"selector":["object"],
+				"attribute":"data"
+			},
+			"author":".subttl"
+		}
+	},
+	"sun_photos":{
+		"label":"sun_photos",
+		"listing": "http://www.sun.mv/pictures",
+		"enumerate_dom": ".mid_news_block .news_listing_title a",
+		"attribute":"href",
+		"scrape":{
+			"title":".image_caption",
+			"images":{
+				"selector":[".pictures img"],
+				"attribute":"src",
+				"replace":["t_", "l_"]
+			}
+		}
+	},
+	"haveeru_images": {
+		"label":"haveeru_images",
+		"listing": "http://www.haveeru.com.mv/dhivehi/pictures/",
+		"enumerate_dom": "#gallerylist li a",
+		"attribute":"href",
+		"url_prepend":"http://www.haveeru.com.mv",
+		"remove":".gallery-holder2 h1 a",
+		"scrape":{
+			"title":".gallery-holder2 h1",
+			"images":{
+				"selector":[".slides li img"],
+				"attribute":"rel"
+			}
+		}
+	},
+	"times": {
+		"label":"times",
+		"listing": "http://times.mv/news",
+		"enumerate_dom": ".catitem a",
+		"attribute":"href",		
+		"scrape":{
+			"title":"#single h1",
+			"category":".catname a",
+			"date":"#articleinfo p:last",
+			"article":"#article-text",
+			"images":{
+				"selector":["#media img"],
+				"attribute":"src"
+			},
+			"author":"#articleinfo p:first"
+		}
+	},
+	"mvyouth": {
+		"label":"mvyouth",
+		"listing": "http://www.mvyouth.mv/live/feed/",
+		"enumerate_dom": "item lin",
+		"remove":".block-social",
+		"scrape":{
+			"title":".page-title",
+			"date":".post_date",
+			"article":"article",
+			"images":{
+				"selector":[".post_thumb img"],
+				"attribute":"src"
+			},
+			"videos":{
+				"selector":[".post_content iframe"],
+				"attribute":"src"
+			}
+		}
+	},
+	"police": {
+		"label":"police",
+		"listing": "http://www.policelife.mv/feed/?cat=4",
+		"enumerate_dom": "item lin",
+		"scrape":{
+			"title":".title h2 a",
+			"date":".postmeta span",
+			"images":{
+				"selector":[".entry img"],
+				"attribute":"src",
+				"remove":"#myContent,.entry img:first"
+			},
+			"article":".entry",
+			"videos":{
+				"selector":[".post_content iframe"],
+				"attribute":"src"
+			}
+		}
+	},
+	"dhiislam": {
+		"label":"dhiislam",
+		"listing": "http://dhiislam.com/feed",
+		"enumerate_dom": "item lin",
+		"scrape":{
+			"title":"h1.entry-title",
+			"date":".entry-date",
+			"article":".entry-content .post",
+			"images":{
+				"selector":[".cover.features:last img"],
+				"attribute":"src"
+			},
+			"author":".entry-author h3 a"
+		}
+	},
+	"dhiislam_images": {
+		"label":"dhiislam_images",
+		"listing": "http://dhiislam.com/topics/photo",
+		"enumerate_dom": ".colmist li h3 a",
+		"attribute":"href",
+		"scrape":{
+			"title":".sliderCaption:first",
+			"images":{
+				"selector":["#innerpage-slider img"],
+				"attribute":"src"
+			}
+		}
+	}
+}
