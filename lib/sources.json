@@ -183,5 +183,24 @@
 				"attribute":"src"
 			}
 		}
+	},
+	"police_images": {
+		"label":"police",
+		"listing": "http://www.policelife.mv/gallery",
+		"enumerate_dom": ".entry a",
+		"scrape":{
+			"title":".title h2 a",
+			"date":".postmeta span",
+			"images":{
+				"selector":[".entry img"],
+				"attribute":"src",
+				"remove":"#myContent,.entry img:first"
+			},
+			"article":".entry",
+			"videos":{
+				"selector":[".post_content iframe"],
+				"attribute":"src"
+			}
+		}
 	}
 }

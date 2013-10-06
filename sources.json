@@ -79,7 +79,7 @@
 			"author":".authorinformation font"
 		}
 	},
-	"haveeru": {
+	"haveeru_en": {
 		"label":"haveeru_en",
 		"listing": "http://haveeru.com.mv/rss",
 		"enumerate_dom": "item lin",
@@ -140,7 +140,7 @@
 			"date":"#articleinfo p:last",
 			"article":"#article-text",
 			"images":{
-				"selector":["#media img"],
+				"selector":["#media img,.liveblog-image img"],
 				"attribute":"src"
 			},
 			"author":"#articleinfo p:first"
@@ -210,6 +210,26 @@
 				"selector":["#innerpage-slider img"],
 				"attribute":"src"
 			}
+		}
+	},
+	"addulive": {
+		"label":"addulive",
+		"listing": "http://haveeru.com.mv/rss/dhivehi",
+		"enumerate_dom": "item lin",
+		"remove":".sharedaddy",
+		"scrape":{
+			"title":".entry-title-single",
+			"date":".time_txt",
+			"article":".entry-content-text",
+			"images":{
+				"selector":[".single_img_cap_container img"],
+				"attribute":"src"
+			},
+			"videos":{
+				"selector":["object"],
+				"attribute":"data"
+			},
+			"author":".author_single"
 		}
 	}
 }

@@ -8,7 +8,7 @@ var _ = require('underscore');
 var sites = require('./sources.json');
 var Scraper = require('./lib');
 var mongoose = require('mongoose');
-
+var arg = require('optimist').argv;
 var db = mongoose.connect("mongodb://127.0.0.1/scrapes");
 
 var page_schema = mongoose.Schema({
@@ -20,7 +20,8 @@ var Page = mongoose.model('pages', page_schema);
 function fetch(){
 	var sources = _.keys(sites);
 	sources = sources.reverse();
-	console.log(sources)
+	var archive = arg.archive != undefined;
+	console.log(archive);
 	async.eachLimit(
 		sources,
 		4,
@@ -73,5 +74,4 @@ function fetch(){
 		self.emit('fetch', data);
 	}
 }
-
 fetch();
