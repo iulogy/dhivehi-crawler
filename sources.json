@@ -36,6 +36,11 @@
 				"attribute":"data"
 			},
 			"author":".authorinformation font"
+		},
+		"archive":{
+			"url":"http://www.sun.mv/:num",
+			"from":1,
+			"to":100000
 		}
 	},
 	"sun_en": {
@@ -77,6 +82,11 @@
 				"attribute":"data"
 			},
 			"author":".authorinformation font"
+		},
+		"archive":{
+			"url":"http://www.haveeru.com.mv/dhivehi/news/:num",
+			"from":1,
+			"to":100000
 		}
 	},
 	"haveeru_en": {

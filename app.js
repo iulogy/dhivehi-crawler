@@ -21,12 +21,14 @@ function fetch(){
 	var sources = _.keys(sites);
 	sources = sources.reverse();
 	var archive = arg.archive != undefined;
-	console.log(archive);
 	async.eachLimit(
 		sources,
 		4,
 		function(item, callback){
 			var scraper = new Scraper.Scraper(sites[item]);
+			if(archive){
+				scraper.archive = true;
+			}
 			scraper.scrape(function(err, data){
 				callback(null, data);
 			});
@@ -47,7 +49,6 @@ function fetch(){
 						delete page.versions;
 						delete page._id
 						Page.update({_id:new mongoose.Types.ObjectId(page.pid)}, {$push:{versions:page}}, function(err,p){
-							console.log(p);
 							if(p == 1){
 								Page.update({_id:pid},{$set:page}, function(err, pa){
 									if(err) throw err;
@@ -63,15 +64,7 @@ function fetch(){
 		},e
 	)	
 	function e(err, res){
-		var data = {};
-		res.forEach(function(e){
-			for(var i in e){
-				data[i] = e[i];
-			}
-		})
-		
-		//expose data
-		self.emit('fetch', data);
+	
 	}
 }
 fetch();
