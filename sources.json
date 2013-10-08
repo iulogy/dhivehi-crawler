@@ -69,7 +69,7 @@
 		"listing": "http://haveeru.com.mv/rss/dhivehi",
 		"enumerate_dom": "item lin",
 		"scrape":{
-			"title":".post h1:first",
+			"title":".post h1",
 			"category":".text-theme a",
 			"date":".date.waheed",
 			"article":"#article,.post-frame",

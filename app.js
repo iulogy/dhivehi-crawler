@@ -30,9 +30,12 @@ function fetch(){
 				scraper.archive = true;
 			}
 			scraper.scrape(function(err, data){
-				callback(null, data);
+				callback(null, null);
 			});
 			scraper.on("new item", function(data){
+				if(data == null){
+					return;
+				}
 				Page
 				.findOne({url:data.url})
 				.lean()
