@@ -6,7 +6,7 @@
 	  "attribute": "href",
 	  "scrape":{
 	  	"title":"title",
-	  	"date":".article-meta ol:last",
+	  	"date":".article-meta ol:first-child",
 	  	"article":".art-para",
 	  	"images":{
 	  		"selector":[".bb-bookblock img,.art-image img"],
@@ -75,7 +75,7 @@
 			"article":"#article,.post-frame",
 			"images":{
 				"selector":[".gallery li img"],
-				"attribute":"src"
+				"attribute":"src,rel"
 			},
 			"videos":{
 				"selector":["object"],
@@ -86,7 +86,7 @@
 		"archive":{
 			"url":"http://www.haveeru.com.mv/dhivehi/news/:num",
 			"from":1,
-			"to":100000
+			"to":144794
 		}
 	},
 	"haveeru_en": {
@@ -95,8 +95,8 @@
 		"enumerate_dom": "item lin",
 		"remove":".service-holder,#comments,.intro",
 		"scrape":{
-			"title":".post h1:first",
-			"category":".breadcrumbs li:last a",
+			"title":".post h1:first-child",
+			"category":".breadcrumbs li:first-child a",
 			"date":".date",
 			"article":".post-frame",
 			"images":{
@@ -147,13 +147,13 @@
 		"scrape":{
 			"title":"#single h1",
 			"category":".catname a",
-			"date":"#articleinfo p:last",
+			"date":"#articleinfo p:first-child",
 			"article":"#article-text",
 			"images":{
 				"selector":["#media img,.liveblog-image img"],
 				"attribute":"src"
 			},
-			"author":"#articleinfo p:first"
+			"author":"#articleinfo p:first-child"
 		}
 	},
 	"mvyouth": {
@@ -185,7 +185,7 @@
 			"images":{
 				"selector":[".entry img"],
 				"attribute":"src",
-				"remove":"#myContent,.entry img:first"
+				"remove":"#myContent,.entry img:first-child"
 			},
 			"article":".entry",
 			"videos":{
@@ -203,7 +203,7 @@
 			"date":".entry-date",
 			"article":".entry-content .post",
 			"images":{
-				"selector":[".cover.features:last img"],
+				"selector":[".cover.features:first-child img"],
 				"attribute":"src"
 			},
 			"author":".entry-author h3 a"
@@ -215,7 +215,7 @@
 		"enumerate_dom": ".colmist li h3 a",
 		"attribute":"href",
 		"scrape":{
-			"title":".sliderCaption:first",
+			"title":".sliderCaption:first-child",
 			"images":{
 				"selector":["#innerpage-slider img"],
 				"attribute":"src"
