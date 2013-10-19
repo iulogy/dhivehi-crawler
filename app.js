@@ -1,73 +1,246 @@
-//clear screen
-//process.stdout.write ('\u001B[2J\u001B[0;0f')
+#!/usr/bin/env node
 
-
-var events = require('events').EventEmitter;
+var program = require('commander');
 var async = require('async')
 var _ = require('underscore');
 var sites = require('./sources.json');
-var Scraper = require('./lib');
+var Scraper = require('./lib/crawler');
+var Indexer = require('./lib/indexer');
 var mongoose = require('mongoose');
-var arg = require('optimist').argv;
 var db = mongoose.connect("mongodb://127.0.0.1/scrapes");
+var colors = require('colors');
+var redis = require('redis');
+
+redis = redis.createClient();
+
+log = function(msg){
+	console.log(new Date().toString().grey + " " + msg);
+}
 
 var page_schema = mongoose.Schema({
 	_id:'ObjectId',
 	versions:'array'
 },{strict:false});
 var Page = mongoose.model('pages', page_schema);
+program
+.version('0.0.1')
+.option('-m, --max', 'Use maximum number of cores available')
+
+program
+.command('fetch [url]')
+.description('fetch content')
+.action(function(url){
+	if(url){
+		Scraper.download(url);
+	}else{
+		fetch();
+	}
+});
+program
+.command('start')
+.description('start crawling')
+.action(function(url){
+	Scraper.start(function(data){
+		if(data == null){
+			return;
+		}
+		Page
+		.findOne({url:data.url})
+		.lean()
+		.exec(function(err, page){
+			if(!page){
+				return new Page(data).save(function(err, p){
+					console.log('saved new page - ' + data.url);
+				});
+			}
+			if(page._resHash != data._resHash){
+				console.log('duplicate page - ' + data.url );
+			}else{
+				var pid = new String(page._id).toString();
+				delete page.versions;
+				delete page._id
+				Page.update({_id:new mongoose.Types.ObjectId(page.pid)}, {$push:{versions:page}}, function(err,p){
+					if(p == 1){
+						Page.update({_id:pid},{$set:page}, function(err, pa){
+							if(err) throw err;
+							console.log('updated - ' + data.url);
+						});
+					}
+				});
+
+			}
+		});
+	
+	});
+});
+program
+.command('sources')
+.description('Get current sources')
+.action(function(time){
+	for(var i in sites){
+		console.log(i);
+	}
+	process.exit();
+});
+program
+.command('read <url>')
+.description('get url data')
+.action(function(url){
+	Page.findOne({url:url}, function(err, page){
+		if(err) throw err;
+		if(!page){
+			console.error("Error".red + url + " not found");
+		}else{
+			console.log(page);
+		}
+		process.exit();
+	});
+});
+program
+.command('links <url> [query]')
+.description('get url data')
+.action(function(url, query){
+	console.log(new RegExp(url));
+	var p = Page
+	.find({url:new RegExp(url)})
+	.lean()
+	.stream();
+	p.on('data', function(data){
+		if(!data){
+			console.error("Error".red + url + " not found");
+		}else{
+			var p = Scraper.select(data._raw, query || "a");
+			var jobs = _.map(p, function(el){
+				return {
+					url:el.attribs.href,
+					title:el.attribs.href,			
+					data:{}
+				}
+			});
+			Indexer.addJobs('haveeru', jobs, function(){});
+
+		}
+	});
+	p.on('close', function(){
+		//process.exit();
+	});
+});
+program
+.command('test <data>')
+.description('get url data')
+.action(function(data){
+	console.log(data);
+});
+program
+.command('normalize <label>')
+.description('parses fetched raw data')
+.action(function(label){
+	
+	var s = Page
+	.find({label:label})
+	.lean()
+	.stream();
+	
+	var missing = [];
+	var i = 0;
+	
+	s.on('data', function(data){
+		//var p = data.url.split("/").pop();
+		//missing.push(p);
+		
+		//console.log((i++) + " - " +  p);
+		
+		
+		var up = Scraper.scrape(data._raw, sites.sun, data.url);
+		delete up['_raw'];
+		delete up['_resHash'];
+		delete up['fetchDate'];
+		Page.update({url:data.url},{$set:up}, function(err, changed){
+			if(err) throw err;
+			console.log(data.url);
+		});
+		
+	});
+	/*
+	var missing_links = [];
+	redis.lrange('sorted', 0, -1, function(err, sorted){
+		var len = parseInt(sorted[sorted.length-1]);
+		for(var i=1; i<=len; i++){
+			if(sorted.indexOf(''+i) == -1){
+				missing_links.push(i);
+			}
+		}
+		var jobs = _.map(missing_links, function(url){
+			return {
+				url:"http://haveeru.com.mv/dhivehi/news/" + url,
+				title:"http://haveeru.com.mv/dhivehi/news/" + url,			
+				data:sites.haveeru
+			}
+		});
+		Indexer.addJobs('haveeru', jobs, function(){
+			process.exit();
+		});
+
+	});
+	*/
+});
+program
+.command('sequence <url> <min> <max>')
+.description('Get current sources')
+.action(function(url, min, max){
+	var urls = [];
+	for(var i=parseInt(min); i<=parseInt(max);i++){
+		urls.push(url.replace(':num',i));
+	}
+	var jobs = _.map(urls, function(url){
+		return {
+			url:url,
+			title:url,			
+			data:{}
+		}
+	});
+	Indexer.addJobs('haveeru', jobs, function(){
+		process.exit();
+	});
+});
+
+program
+.command('add <url>')
+.description('add a url')
+.action(function(url){
+	if(!url) throw Error("No URL provided");
+	console.log(url);
+	var job = {
+		url:url,
+		title:url,			
+		data:{}
+	}
+	Indexer.addJobs('haveeru', [job], function(){
+		process.exit();
+	});
+});
+
+program.parse(process.argv);
+
 
 function fetch(){
 	var sources = _.keys(sites);
 	sources = sources.reverse();
-	var archive = arg.archive != undefined;
 	async.eachLimit(
 		sources,
 		4,
 		function(item, callback){
-			var scraper = new Scraper.Scraper(sites[item]);
-			if(archive){
-				scraper.archive = true;
-			}
+			var scraper = new Indexer.Scraper(sites[item]);
 			scraper.scrape(function(err, data){
 				callback(null, null);
 			});
 			scraper.on("new item", function(data){
-				if(data == null){
-					return;
-				}
-				Page
-				.findOne({url:data.url})
-				.lean()
-				.exec(function(err, page){
-					if(!page){
-						return new Page(data).save(function(err, p){
-							console.log('saved new page - ' + data.url);
-						});
-					}
-					if(page._resHash != data._resHash){
-						console.log('duplicate page - ' + data.url );
-					}else{
-						var pid = new String(page._id).toString();
-						delete page.versions;
-						delete page._id
-						Page.update({_id:new mongoose.Types.ObjectId(page.pid)}, {$push:{versions:page}}, function(err,p){
-							if(p == 1){
-								Page.update({_id:pid},{$set:page}, function(err, pa){
-									if(err) throw err;
-									console.log('updated - ' + data.url);
-								});
-							}
-						});
-
-					}
-				});
 			});
 			
 		},e
 	)	
 	function e(err, res){
-	
+		process.exit();
 	}
 }
-fetch();
+

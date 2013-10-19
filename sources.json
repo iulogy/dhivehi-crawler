@@ -24,7 +24,7 @@
 		"listing": "http://sun.mv/feed/",
 		"enumerate_dom": "item lin",
 		"scrape":{
-			"title":".mainheadline",
+			"title":".mainheadline:first-child",
 			"date":".article_attributes ol",
 			"article":".article_body",
 			"images":{
@@ -39,7 +39,7 @@
 		},
 		"archive":{
 			"url":"http://www.sun.mv/:num",
-			"from":1,
+			"from":977,
 			"to":100000
 		}
 	},
@@ -72,7 +72,7 @@
 			"title":".post h1",
 			"category":".text-theme a",
 			"date":".date.waheed",
-			"article":"#article,.post-frame",
+			"article":"#article",
 			"images":{
 				"selector":[".gallery li img"],
 				"attribute":"src,rel"
@@ -81,11 +81,11 @@
 				"selector":["object"],
 				"attribute":"data"
 			},
-			"author":".authorinformation font"
+			"author":".subttl.waheed"
 		},
 		"archive":{
 			"url":"http://www.haveeru.com.mv/dhivehi/news/:num",
-			"from":1,
+			"from":2246,
 			"to":144794
 		}
 	},
