@@ -111,6 +111,7 @@ program
 		}else{
 			var p = Scraper.select(data._raw, query || "a");
 			var jobs = _.map(p, function(el){
+				//console.log(el.attribs.href, data.url);
 				return {
 					url:el.attribs.href,
 					title:el.attribs.href,			
