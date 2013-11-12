@@ -27,6 +27,17 @@ program
 .option('-m, --max', 'Use maximum number of cores available')
 
 program
+.command('count')
+.description('count number of pages scraped')
+.action(function(url){
+	Page
+	.count()
+	.exec(function(err, count){
+		console.log(count);
+		process.exit();
+	});
+});
+program
 .command('fetch [url]')
 .description('fetch content')
 .action(function(url){
