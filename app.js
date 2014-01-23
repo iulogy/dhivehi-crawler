@@ -10,6 +10,7 @@ var mongoose = require('mongoose');
 var db = mongoose.connect("mongodb://127.0.0.1/scrapes");
 var colors = require('colors');
 var redis = require('redis');
+var url = require('url');
 
 redis = redis.createClient();
 
@@ -109,22 +110,22 @@ program
 });
 program
 .command('links <url> [query]')
-.description('get url data')
-.action(function(url, query){
-	console.log(new RegExp(url));
+.description('extract urls for crawling')
+.action(function(link, query){
+	console.log(new RegExp(link));
 	var p = Page
-	.find({url:new RegExp(url)})
+	.find({url:new RegExp(link)})
 	.lean()
 	.stream();
 	p.on('data', function(data){
 		if(!data){
-			console.error("Error".red + url + " not found");
+			console.error("Error".red + link + " not found");
 		}else{
 			var p = Scraper.select(data._raw, query || "a");
 			var jobs = _.map(p, function(el){
 				//console.log(el.attribs.href, data.url);
 				return {
-					url:el.attribs.href,
+					url:url.resolve(link,el.attribs.href),
 					title:el.attribs.href,			
 					data:{}
 				}
@@ -142,6 +143,16 @@ program
 .description('get url data')
 .action(function(data){
 	console.log(data);
+});
+program
+.command('label <label> <url>')
+.description('add label to matching url (regexp match)')
+.action(function(label, url){
+	Page.update({url:new RegExp(url)},{$set:{label:label}}, {multi:true}, function(err, res){
+		if(err) throw err;
+		console.log(res);
+		process.exit();
+	});
 });
 program
 .command('normalize <label>')
@@ -163,15 +174,18 @@ program
 		//console.log((i++) + " - " +  p);
 		
 		
-		var up = Scraper.scrape(data._raw, sites.sun, data.url);
+		var up = Scraper.scrape(data._raw, sites[label], data.url);
 		delete up['_raw'];
 		delete up['_resHash'];
 		delete up['fetchDate'];
 		Page.update({url:data.url},{$set:up}, function(err, changed){
 			if(err) throw err;
-			console.log(data.url);
+			console.log("normalized " + data.url);
 		});
 		
+	});
+	s.on('end', function(){
+		process.exit();
 	});
 	/*
 	var missing_links = [];
@@ -228,6 +242,17 @@ program
 		data:{}
 	}
 	Indexer.addJobs('haveeru', [job], function(){
+		process.exit();
+	});
+});
+
+program
+.command('remove <label>')
+.description('remove pages matching the label')
+.action(function(label){
+	if(!label) throw Error("No label provided");
+	Page.remove({label:label}, function(){
+		console.log(arguments);
 		process.exit();
 	});
 });

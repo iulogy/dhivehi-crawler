@@ -241,5 +241,38 @@
 			},
 			"author":".author_single"
 		}
+	},
+	"elections": {
+		"label":"elections",
+		"remove":"#main .canrow:last-child",
+		"scrape":{
+			"title":"title",
+			"code":{
+				"selector":"#ctl00_ContentPlaceHolder3_Code",
+				"clean":"[A-z].*[0-9]",
+				"flatten":true
+			},
+			"elect_amount":{
+				"selector":"#ctl00_ContentPlaceHolder3_Electee",
+				"clean":"[0-9].*",
+				"flatten":true
+			},
+			"total":{
+				"selector":"#ctl00_ContentPlaceHolder3_Electee",
+				"clean":"[0-9].*",
+				"flatten":true
+			},
+			"candidates_name":{
+				"selector":"#main .canName"
+			},
+			"candidates_votes":{
+				"selector":"#main .canVotes"
+			},
+			"candidates_party":{
+				"selector":"#main .canparty img",
+				"attribute":"src"
+			},
+			"total_votes":"#ctl00_ContentPlaceHolder1_DataList1 tr div.irow:nth-child(2n+2) .irowval"
+		}
 	}
 }
