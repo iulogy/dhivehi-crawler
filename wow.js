@@ -14,14 +14,39 @@ var url = require('url');
 
 redis = redis.createClient();
 
-log = function(msg){
-	console.log(new Date().toString().grey + " " + msg);
-}
+var orig = console.log;
+console.log = function(m) {
+    var msgs = [];
+    while(arguments.length) {
+        msgs.push("wow".grey.inverse + ': ' + [].shift.call(arguments));
+    }
+    orig.apply(console,  msgs);
+};
+
+console.info = function(m) {
+    var msgs = [];
+    while(arguments.length) {
+        msgs.push("wow".green.inverse + ': ' + [].shift.call(arguments));
+    }
+    orig.apply(console,  msgs);
+};
 
 var page_schema = mongoose.Schema({
 	_id:'ObjectId',
 	versions:'array'
 },{strict:false});
+
+console.log(" .----------------.  .----------------.  .----------------. ");
+console.log("| .--------------. || .--------------. || .--------------. |");
+console.log("| | _____  _____ | || |     ____     | || | _____  _____ | |");
+console.log("| ||_   _||_   _|| || |   .'    `.   | || ||_   _||_   _|| |");
+console.log("| |  | | /\\ | |  | || |  /  .--.  \\  | || |  | | /\\ | |  | |");
+console.log("| |  | |/  \\| |  | || |  | |    | |  | || |  | |/  \\| |  | |");
+console.log("| |  |   /\\   |  | || |  \\  `--'  /  | || |  |   /\\   |  | |");
+console.log("| |  |__/  \\__|  | || |   `.____.'   | || |  |__/  \\__|  | |");
+console.log("| |              | || |              | || |              | |");
+console.log("| '--------------' || '--------------' || '--------------' |");
+console.log(" '----------------'  '----------------'  '----------------' ");
 var Page = mongoose.model('pages', page_schema);
 program
 .version('0.0.1')
@@ -52,6 +77,7 @@ program
 .command('start')
 .description('start crawling')
 .action(function(url){
+	console.info("starting crawler");
 	Scraper.start(function(data){
 		if(data == null){
 			return;
@@ -62,7 +88,7 @@ program
 		.exec(function(err, page){
 			if(!page){
 				return new Page(data).save(function(err, p){
-					console.log('saved new page - ' + data.url);
+					console.info('saved new page - ' + data.url);
 				});
 			}
 			if(page._resHash != data._resHash){
@@ -254,6 +280,25 @@ program
 	Page.remove({label:label}, function(){
 		console.log(arguments);
 		process.exit();
+	});
+});
+
+var i = 1;
+
+program
+.command('que-clear')
+.description('remove all jobs from que')
+.action(function(label){
+	var kue = require('kue');
+	jobs = kue.createQueue();
+	jobs.process('haveeru', 20, function(job, done){
+		process.stderr.clearLine();
+		process.stderr.cursorTo(0);
+		process.stderr.write('removing ' + i);
+		job.remove(function(err){
+		done();
+		i++;		
+		});
 	});
 });
 
