@@ -11,6 +11,7 @@ var db = mongoose.connect("mongodb://127.0.0.1/scrapes");
 var colors = require('colors');
 var redis = require('redis');
 var url = require('url');
+var cheerio = require('cheerio');
 
 redis = redis.createClient();
 
@@ -304,6 +305,82 @@ program
 
 program.parse(process.argv);
 
+var load;
+var loadDoc=[];
+if(process.argv.length == 2){
+	console.log("\n\nWOW parser 0.0.1");
+	//process.stderr.clearLine();
+	//process.stderr.cursorTo(0);
+	process.stderr.write('>>> ');
+	process.stdin.resume();
+	process.stdin.setEncoding('utf8');
+	process.stdin.on('data', function (chunk) {
+		var cmd = chunk.trim().split(" ");
+		switch (cmd[0]){
+			case "time":
+				console.log(new Date);
+				end();
+				break;
+			case "exit":
+				process.exit();		
+				end();				
+				break;
+			case "count":
+				console.log(load.length);	
+				end();				
+				break;
+			case "load":
+				var url = cmd[1];
+				if(!url){
+					return err("nothing to load");
+				}
+				Page
+				.find({url:new RegExp(url)})
+				.lean()
+				.exec(function(err, docs){
+					load = docs;
+					load.forEach(function(doc,i){
+						var doc = cheerio.load(doc._raw);
+						loadDoc.push(doc);
+					});
+					end();
+				});
+				break;
+			case "urls":
+				if(cload()){
+					load.forEach(function(l,i){
+						console.log((i+1) + " " + l.url);
+					});
+				}
+				break;				
+			case "read":
+				if(cload()){
+					loadDoc.forEach(function(doc){
+						var text = doc(cmd[1]).text().trim();
+						console.log(text);
+					});
+					end();
+				}
+				break;				
+			default:
+				end();
+
+		}
+	});
+}
+function cload(){
+	if(!load){
+		return err("nothing loaded");	
+	}
+	return true;
+}
+function end(){
+	process.stderr.write('>>> ');
+}
+function err(arg){
+	process.stderr.write('Error: ' + arg);
+	process.stderr.write('\n>>> ');
+}
 
 function fetch(){
 	var sources = _.keys(sites);
