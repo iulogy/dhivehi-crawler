@@ -1,0 +1,73 @@
+{
+	"sun": {
+		"label":"sun",
+		"url": "http://sun.mv/feed/",
+		"scrape":{
+			"headlines":{
+				"selector":["item title"]
+			},
+			"links":{
+				"selector":["item url"]
+			},
+			"description":{
+				"selector":["item description"]
+			},
+			"image":{
+				"selector":["item image"]
+			}
+		}
+	},
+	"vnews": {
+		"label":"vnews",
+		"url": "http://vnews.mv/",
+		"scrape":{
+			"headlines":{
+				"selector":[".timelineholder_home h2 a"]
+			},
+			"links":{
+				"selector":[".timelineholder_home h2 a"],
+				"attribute":"href"
+			},
+			"image":{
+				"selector":[".timelineholder_home .thumbs img"],
+				"attribute":"src"
+			}
+		}
+	},
+	"police": {
+		"label":"police",
+		"url": "http://www.policelife.mv/archives/2014",
+		"scrape":{
+			"headlines":{
+				"selector":[".title a"]
+			},
+			"links":{
+				"selector":[".title a"],
+				"attribute":"href"
+			},
+			"description":{
+				"selector":[".post p"]
+			}
+		}
+	},
+	"mvyouth": {
+		"label":"mvyouth",
+		"url": "http://www.mvyouth.mv/live/wp-content/themes/mvyouth_time/mvyouth-ajax.php?numPosts=20&offset=0&category=1",
+		"scrape":{
+			"headlines":{
+				"selector":["h3 a"]
+			},
+			"links":{
+				"selector":["h3 a"],
+				"attribute":"href"
+			},
+			"description":{
+				"selector":[".text"]
+			},
+			"image":{
+				"selector":[".pic img"],
+				"attribute":"src"
+			}
+		}
+	}
+}

@@ -1,0 +1,22 @@
+{
+	"topmovies":{
+		"url": "http://thepiratebay.se/top/201",
+		"label":"topmovies",
+		"limit":10,
+		"scrape":{
+			"movies":{
+				"selector":[".detName a"]
+			}
+		}
+	},
+	"tophdmovies":{
+		"url": "http://thepiratebay.se/top/207",
+		"label":"tophdmovies",
+		"limit":10,
+		"scrape":{
+			"movies":{
+				"selector":[".detName a"]
+			}
+		}
+	}
+}

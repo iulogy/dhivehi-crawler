@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-
+var settings = require('./settings');
 var program = require('commander');
 var async = require('async')
 var _ = require('underscore');
@@ -12,8 +12,10 @@ var colors = require('colors');
 var redis = require('redis');
 var url = require('url');
 var cheerio = require('cheerio');
+var util = require('util');
 
-redis = redis.createClient();
+
+var rediscon = redis.createClient();
 
 var orig = console.log;
 console.log = function(m) {
@@ -51,7 +53,7 @@ console.log(" '----------------'  '----------------'  '----------------' ");
 var Page = mongoose.model('pages', page_schema);
 program
 .version('0.0.1')
-.option('-m, --max', 'Use maximum number of cores available')
+.option('-i, --interval [minute]', 'interval for sources')
 
 program
 .command('count')
@@ -113,13 +115,46 @@ program
 	});
 });
 program
-.command('sources')
+.command('sources <location>')
 .description('Get current sources')
-.action(function(time){
-	for(var i in sites){
-		console.log(i);
+.action(function(location){
+	var location = __dirname + "/" + location;
+	var exists = require("fs").existsSync(location);
+	if(!exists){
+		console.log("source not found");
+		process.exit();
 	}
-	process.exit();
+	var interval = parseInt(program.interval) || 5;
+	async.forever(
+		function(done){
+			// logic
+			var source = require(location);
+			var sources = _.keys(source);
+			sources = sources.reverse();
+			async.eachLimit(
+				sources,
+				4,
+				function(item, callback){
+					var scraper = new Indexer.Scraper(source[item]);
+					scraper.scrape({que_name:location},function(err, data){
+						callback();
+					});
+					
+				},function(err){
+					Scraper.start({que_name:location},function(data){
+						delete data._raw;
+						var redis_key = "iulogy:sources:" + location.split("/").pop().replace(".json","");
+						rediscon.hset(redis_key,data.label,JSON.stringify(data));
+					});
+					setTimeout(done, 1000 * 60 * interval);
+				}
+			)
+		},
+		function(err){
+			console.log("Major error!");
+			process.exit();
+		}
+	);
 });
 program
 .command('read <url>')
@@ -301,6 +336,32 @@ program
 		i++;		
 		});
 	});
+});
+
+program
+.command('info <user>')
+.description('information about person')
+.action(function(user){
+	var tw = require('./lib/twitter/twitter');
+	tw.info(user);
+});
+program
+.command('friends <users>')
+.description('common friends')
+.action(function(users){
+	var tw = require('./lib/twitter/twitter');
+	users = users.split(",");
+	if(users.length == 1){
+		console.log("nothing to lookup");
+		process.exit();
+	}
+	tw.friends(users);
+});
+program
+.command('http-server')
+.description('start http server')
+.action(function(){
+	require("./lib/server/server");
 });
 
 program.parse(process.argv);
