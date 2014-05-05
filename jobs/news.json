@@ -69,5 +69,23 @@
 				"attribute":"src"
 			}
 		}
+	},
+	"dhiislam":{
+		"label":"dhiislam",
+		"url":"http://dhiislam.com/topics/news",
+		"scrape":{
+			"headlines":{
+				"selector":["#archive-posts .entry-title a"]
+			},
+			"links":{
+				"selector":"#archive-posts .entry-title a",
+				"attribute":"href"
+			},
+			"image":{
+				"selector":"#archive-posts .archive-img img",
+				"attribute":"src"
+			}
+		}
+
 	}
 }
