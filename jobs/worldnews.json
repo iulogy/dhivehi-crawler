@@ -1,7 +1,7 @@
 {
 	"googlenews": {
 		"label":"googlenews",
-		"url": "https://news.google.com/",
+		"url": "https://news.google.com/news/section?cf=all&ned=us&topic=w",
 		"scrape":{
 			"headlines":{
 				"selector":[".esc-lead-article-title-wrapper a span"]
