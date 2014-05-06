@@ -1,0 +1,21 @@
+{
+	"googlenews": {
+		"label":"googlenews",
+		"url": "https://news.google.com/",
+		"scrape":{
+			"headlines":{
+				"selector":[".esc-lead-article-title-wrapper a span"]
+			},
+			"links":{
+				"selector":[".esc-lead-article-title-wrapper a"],
+				"attribute":"href"
+			},
+			"description":{
+				"selector":[".esc-lead-snippet-wrapper"]
+			},
+			"image":{
+				"selector":[".esc-thumbnail-image"]
+			}
+		}
+	}
+}
