@@ -87,5 +87,20 @@
 			}
 		}
 
+	},
+	"raajjemv": {
+		"label":"raajjemv",
+		"url": "http://www.raajje.mv/feed",
+		"scrape":{
+			"headlines":{
+				"selector":["item title"]
+			},
+			"links":{
+				"selector":["item link"]
+			},
+			"image":{
+				"selector":["item image"]
+			}
+		}
 	}
 }
