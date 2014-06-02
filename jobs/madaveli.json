@@ -1,0 +1,22 @@
+{
+	"madaveli": {
+		"label":"madaveli",
+		"url": "http://madaveli.gov.mv/?page_id=16",
+		"scrape":{
+			"headlines":{
+				"selector":[".large-12[id='single-news'] h5 a"]
+			},
+			"links":{
+				"selector":[".large-12[id='single-news'] h5 a"],
+				"attribute":"href"
+			},
+			"description":{
+				"selector":[".large-12[id='single-news'] p:nth-child(2n)"]
+			},
+			"image":{
+				"selector":[".large-12[id='single-news'] img"],
+				"attribute":"src"
+			}
+		}
+	}
+}

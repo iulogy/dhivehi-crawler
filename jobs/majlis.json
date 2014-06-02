@@ -1,0 +1,18 @@
+{
+	"majlis": {
+		"label":"majlis",
+		"url": "http://www.majlis.gov.mv/di/topic/news",
+		"scrape":{
+			"headlines":{
+				"selector":[".catHeadlines a"]
+			},
+			"links":{
+				"selector":[".catHeadlines a"],
+				"attribute":"href"
+			},
+			"description":{
+				"selector":[".cat p"]
+			}
+		}
+	}
+}
